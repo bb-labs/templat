@@ -1,0 +1,143 @@
+scalar Int4
+
+type Int4AggExp {
+  _count: Int!
+  _count_distinct: Int!
+  avg: Numeric
+  bit_and: Int4
+  bit_or: Int4
+  bit_xor: Int4
+  max: Int4
+  min: Int4
+  stddev: Numeric
+  stddev_pop: Numeric
+  stddev_samp: Numeric
+  sum: Int8
+  var_pop: Numeric
+  var_samp: Numeric
+  variance: Numeric
+}
+
+input Int4BoolExp {
+  _and: [Int4BoolExp!]
+  _eq: Int4
+  _gt: Int4
+  _gte: Int4
+  _in: [Int4!]
+  _is_null: Boolean
+  _lt: Int4
+  _lte: Int4
+  _neq: Int4
+  _not: Int4BoolExp
+  _or: [Int4BoolExp!]
+}
+
+scalar Int8
+
+type Mutation {
+  _no_fields_accessible: String
+}
+
+scalar Numeric
+
+enum OrderBy {
+  """
+  Sorts the data in ascending order
+  """
+  Asc
+
+  """
+  Sorts the data in descending order
+  """
+  Desc
+}
+
+type Query {
+  users(
+    limit: Int
+    offset: Int
+    order_by: [UsersOrderByExp!]
+    where: UsersBoolExp
+  ): [Users!]
+  usersAggregate(filter_input: UsersFilterInput): UsersAggExp
+  usersById(id: Int4!): Users
+}
+
+type Subscription {
+  users(
+    limit: Int
+    offset: Int
+    order_by: [UsersOrderByExp!]
+    where: UsersBoolExp
+  ): [Users!]
+  usersAggregate(filter_input: UsersFilterInput): UsersAggExp
+  usersById(id: Int4!): Users
+}
+
+scalar Text
+
+type TextAggExp {
+  _count: Int!
+  _count_distinct: Int!
+  max: Text
+  min: Text
+}
+
+input TextBoolExp {
+  _and: [TextBoolExp!]
+  _eq: Text
+  _gt: Text
+  _gte: Text
+  _ilike: Text
+  _in: [Text!]
+  _iregex: Text
+  _is_null: Boolean
+  _like: Text
+  _lt: Text
+  _lte: Text
+  _neq: Text
+  _nilike: Text
+  _niregex: Text
+  _nlike: Text
+  _not: TextBoolExp
+  _nregex: Text
+  _or: [TextBoolExp!]
+  _regex: Text
+  starts_with: Text
+  ts_match_tt: Text
+}
+
+type Users {
+  age: Int4!
+  id: Int4!
+  name: Text!
+}
+
+type UsersAggExp {
+  _count: Int!
+  age: Int4AggExp!
+  id: Int4AggExp!
+  name: TextAggExp!
+}
+
+input UsersBoolExp {
+  _and: [UsersBoolExp!]
+  _not: UsersBoolExp
+  _or: [UsersBoolExp!]
+  age: Int4BoolExp
+  id: Int4BoolExp
+  name: TextBoolExp
+}
+
+input UsersFilterInput {
+  limit: Int
+  offset: Int
+  order_by: [UsersOrderByExp!]
+  where: UsersBoolExp
+}
+
+input UsersOrderByExp {
+  age: OrderBy
+  id: OrderBy
+  name: OrderBy
+}
