@@ -15,7 +15,7 @@ export default function UsersView() {
         alignItems: "center",
       }}
     >
-      <Text>Users Shmist</Text>
+      <Text>Users List</Text>
       {data.users?.map((user) => (
         <Text key={user._id}>
           {user.name} - {user.age}

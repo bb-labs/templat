@@ -1,0 +1,1237 @@
+kind: DataConnectorLink
+version: v1
+definition:
+  name: my_pg
+  url:
+    readWriteUrls:
+      read:
+        valueFromEnv: APP_MY_PG_READ_URL
+      write:
+        valueFromEnv: APP_MY_PG_WRITE_URL
+  headers:
+    Authorization:
+      valueFromEnv: APP_MY_PG_AUTHORIZATION_HEADER
+  schema:
+    version: v0.1
+    schema:
+      scalar_types:
+        int4:
+          representation:
+            type: int32
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int4
+        int8:
+          representation:
+            type: int64
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            bit_and:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_or:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            bit_xor:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int8
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: int8
+        numeric:
+          representation:
+            type: bigdecimal
+          aggregate_functions:
+            avg:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            stddev_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            sum:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_pop:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            var_samp:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+            variance:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: numeric
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: numeric
+        text:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: text
+        timestamp:
+          representation:
+            type: timestamp
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamp
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamp
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamp
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamp
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamp
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamp
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamp
+        timestamptz:
+          representation:
+            type: timestamptz
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _in:
+              type: in
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: timestamptz
+        varchar:
+          representation:
+            type: string
+          aggregate_functions:
+            max:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            min:
+              result_type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+          comparison_operators:
+            _eq:
+              type: equal
+            _gt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _gte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _ilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _in:
+              type: in
+            _iregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _like:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _lte:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _neq:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nilike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _niregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nlike:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _nregex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            _regex:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            starts_with:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+            ts_match_tt:
+              type: custom
+              argument_type:
+                type: named
+                name: varchar
+      object_types:
+        _prisma_migrations:
+          fields:
+            applied_steps_count:
+              type:
+                type: named
+                name: int4
+            checksum:
+              type:
+                type: named
+                name: varchar
+            finished_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            id:
+              type:
+                type: named
+                name: varchar
+            logs:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            migration_name:
+              type:
+                type: named
+                name: varchar
+            rolled_back_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            started_at:
+              type:
+                type: named
+                name: timestamptz
+        Users:
+          fields:
+            createdAt:
+              type:
+                type: named
+                name: timestamp
+            email:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: named
+                name: int4
+            name:
+              type:
+                type: named
+                name: text
+            password:
+              type:
+                type: named
+                name: text
+            updatedAt:
+              type:
+                type: named
+                name: timestamp
+        delete__prisma_migrations_by_id_response:
+          description: Responses from the 'delete__prisma_migrations_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: _prisma_migrations
+        delete_Users_by_id_response:
+          description: Responses from the 'delete_Users_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Users
+        insert__prisma_migrations_object:
+          fields:
+            applied_steps_count:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            checksum:
+              type:
+                type: named
+                name: varchar
+            finished_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            id:
+              type:
+                type: named
+                name: varchar
+            logs:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+            migration_name:
+              type:
+                type: named
+                name: varchar
+            rolled_back_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+            started_at:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        insert__prisma_migrations_response:
+          description: Responses from the 'insert__prisma_migrations' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: _prisma_migrations
+        insert_Users_object:
+          fields:
+            createdAt:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamp
+            email:
+              type:
+                type: named
+                name: text
+            id:
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: int4
+            name:
+              type:
+                type: named
+                name: text
+            password:
+              type:
+                type: named
+                name: text
+            updatedAt:
+              type:
+                type: named
+                name: timestamp
+        insert_Users_response:
+          description: Responses from the 'insert_Users' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Users
+        update__prisma_migrations_by_id_response:
+          description: Responses from the 'update__prisma_migrations_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: _prisma_migrations
+        update__prisma_migrations_by_id_update_columns:
+          description: Update the columns of the '_prisma_migrations' collection
+          fields:
+            applied_steps_count:
+              description: Update the 'applied_steps_count' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_applied_steps_count
+            checksum:
+              description: Update the 'checksum' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_checksum
+            finished_at:
+              description: Update the 'finished_at' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_finished_at
+            id:
+              description: Update the 'id' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_id
+            logs:
+              description: Update the 'logs' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_logs
+            migration_name:
+              description: Update the 'migration_name' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_migration_name
+            rolled_back_at:
+              description: Update the 'rolled_back_at' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_rolled_back_at
+            started_at:
+              description: Update the 'started_at' column in the '_prisma_migrations' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column__prisma_migrations_started_at
+        update_Users_by_id_response:
+          description: Responses from the 'update_Users_by_id' procedure
+          fields:
+            affected_rows:
+              description: The number of rows affected by the mutation
+              type:
+                type: named
+                name: int4
+            returning:
+              description: Data from rows affected by the mutation
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: Users
+        update_Users_by_id_update_columns:
+          description: Update the columns of the 'Users' collection
+          fields:
+            createdAt:
+              description: Update the 'createdAt' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_createdAt
+            email:
+              description: Update the 'email' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_email
+            id:
+              description: Update the 'id' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_id
+            name:
+              description: Update the 'name' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_name
+            password:
+              description: Update the 'password' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_password
+            updatedAt:
+              description: Update the 'updatedAt' column in the 'Users' collection.
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: update_column_Users_updatedAt
+        update_column__prisma_migrations_applied_steps_count:
+          description: Update the 'applied_steps_count' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column__prisma_migrations_checksum:
+          description: Update the 'checksum' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column__prisma_migrations_finished_at:
+          description: Update the 'finished_at' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column__prisma_migrations_id:
+          description: Update the 'id' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column__prisma_migrations_logs:
+          description: Update the 'logs' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: text
+        update_column__prisma_migrations_migration_name:
+          description: Update the 'migration_name' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: varchar
+        update_column__prisma_migrations_rolled_back_at:
+          description: Update the 'rolled_back_at' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: nullable
+                underlying_type:
+                  type: named
+                  name: timestamptz
+        update_column__prisma_migrations_started_at:
+          description: Update the 'started_at' column in the '_prisma_migrations' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamptz
+        update_column_Users_createdAt:
+          description: Update the 'createdAt' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamp
+        update_column_Users_email:
+          description: Update the 'email' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_Users_id:
+          description: Update the 'id' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: int4
+        update_column_Users_name:
+          description: Update the 'name' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_Users_password:
+          description: Update the 'password' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: text
+        update_column_Users_updatedAt:
+          description: Update the 'updatedAt' column in the 'Users' collection
+          fields:
+            _set:
+              description: Set the column to this value
+              type:
+                type: named
+                name: timestamp
+      collections:
+        - name: Users
+          arguments: {}
+          type: Users
+          uniqueness_constraints:
+            Users_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+        - name: _prisma_migrations
+          arguments: {}
+          type: _prisma_migrations
+          uniqueness_constraints:
+            _prisma_migrations_pkey:
+              unique_columns:
+                - id
+          foreign_keys: {}
+      functions: []
+      procedures:
+        - name: delete_Users_by_id
+          description: Delete any row on the 'Users' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            pre_check:
+              description: Delete permission predicate over the 'Users' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: Users
+          result_type:
+            type: named
+            name: delete_Users_by_id_response
+        - name: delete__prisma_migrations_by_id
+          description: Delete any row on the '_prisma_migrations' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: varchar
+            pre_check:
+              description: Delete permission predicate over the '_prisma_migrations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: _prisma_migrations
+          result_type:
+            type: named
+            name: delete__prisma_migrations_by_id_response
+        - name: insert_Users
+          description: Insert into the Users table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert_Users_object
+            post_check:
+              description: Insert permission predicate over the 'Users' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: Users
+          result_type:
+            type: named
+            name: insert_Users_response
+        - name: insert__prisma_migrations
+          description: Insert into the _prisma_migrations table
+          arguments:
+            objects:
+              type:
+                type: array
+                element_type:
+                  type: named
+                  name: insert__prisma_migrations_object
+            post_check:
+              description: Insert permission predicate over the '_prisma_migrations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: _prisma_migrations
+          result_type:
+            type: named
+            name: insert__prisma_migrations_response
+        - name: update_Users_by_id
+          description: Update any row on the 'Users' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: int4
+            post_check:
+              description: Update permission post-condition predicate over the 'Users' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: Users
+            pre_check:
+              description: Update permission pre-condition predicate over the 'Users' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: Users
+            update_columns:
+              type:
+                type: named
+                name: update_Users_by_id_update_columns
+          result_type:
+            type: named
+            name: update_Users_by_id_response
+        - name: update__prisma_migrations_by_id
+          description: Update any row on the '_prisma_migrations' collection using the 'id' key
+          arguments:
+            key_id:
+              type:
+                type: named
+                name: varchar
+            post_check:
+              description: Update permission post-condition predicate over the '_prisma_migrations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: _prisma_migrations
+            pre_check:
+              description: Update permission pre-condition predicate over the '_prisma_migrations' collection
+              type:
+                type: nullable
+                underlying_type:
+                  type: predicate
+                  object_type_name: _prisma_migrations
+            update_columns:
+              type:
+                type: named
+                name: update__prisma_migrations_by_id_update_columns
+          result_type:
+            type: named
+            name: update__prisma_migrations_by_id_response
+    capabilities:
+      version: 0.1.6
+      capabilities:
+        query:
+          aggregates: {}
+          variables: {}
+          explain: {}
+          nested_fields:
+            filter_by: {}
+            order_by: {}
+          exists:
+            nested_collections: {}
+        mutation:
+          transactional: {}
+          explain: {}
+        relationships:
+          relation_comparisons: {}
+          order_by_aggregate: {}
